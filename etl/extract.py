@@ -8,11 +8,15 @@ def extract_data():
     if not DATA_PATH.exists():
         raise FileNotFoundError(f"Raw data file not found: {DATA_PATH}")
 
+    # df = pd.read_csv(
+    #     DATA_PATH,
+    #     sep=",",
+    #     quotechar='"',
+    #     engine="python"
+    # )
     df = pd.read_csv(
         DATA_PATH,
-        sep=",",
-        quotechar='"',
-        engine="python"
+        dtype={"transaction_date": "string"}  # ⬅️ PAKSA STRING
     )
 
     print(f"Extracted {len(df)} rows")
