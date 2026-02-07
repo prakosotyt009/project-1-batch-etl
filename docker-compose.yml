@@ -1,0 +1,32 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: de_postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: de_workspace
+      POSTGRES_USER: prakoso
+      POSTGRES_PASSWORD: admin123
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  etl:
+    image: batch-etl:latest
+    container_name: de_etl
+    depends_on:
+      - postgres
+    restart: always
+    environment:
+      DB_HOST: de_postgres
+      DB_PORT: 5432
+      DB_NAME: de_workspace
+      DB_USER: prakoso
+      DB_PASSWORD: admin123
+    volumes:
+      - ./data:/app/data
+    command: python -m etl.main
+
+volumes:
+  pgdata:

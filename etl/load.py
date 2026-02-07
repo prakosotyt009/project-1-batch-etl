@@ -1,14 +1,14 @@
 import psycopg2
 import pandas as pd
 from psycopg2.extras import execute_batch
-
+import os
 def load_to_postgres(df: pd.DataFrame):
     conn = psycopg2.connect(
-        host="localhost",
-        port=5432,
-        dbname="de_workspace",
-        user="prakoso",
-        password="admin123"
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT"),
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD")
     )
     cur = conn.cursor()
 
