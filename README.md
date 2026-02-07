@@ -11,7 +11,7 @@ This project is designed as a **Data Engineer portfolio project** following indu
 
 ## 🏗 Architecture
 
-```All services run inside Docker containers using Docker Compose.
+All services run inside Docker containers using Docker Compose.
 
 ---
 
@@ -25,7 +25,7 @@ This project is designed as a **Data Engineer portfolio project** following indu
 ---
 
 ## 📂 Project Structure
-```text
+```
 data/raw/ # Raw CSV data
 docker/postgres/ # Postgres init script
 etl/ # ETL pipeline code
