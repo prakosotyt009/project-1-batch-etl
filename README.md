@@ -39,7 +39,7 @@ sql/
 
 ### 1. Clone Repository
 
-git clone <your-repo-url>
+git clone https://github.com/prakosotyt009/project-1-batch-etl.git
 cd PROJECT-1-BATCH-ETL
 
 ### 2. Start Services
