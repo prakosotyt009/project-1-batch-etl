@@ -33,6 +33,7 @@ sql/
 ├── analytics/ # Analytical queries
 ├── ddl/ # Table definitions
 └── metrics/ # Data quality & metric
+```
 
 ## ▶️ How to Run the Project
 
